@@ -1,10 +1,21 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../providers/AuthContext";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
 
-  const {user} = useContext(AuthContext)
+  const {user, userLogout} = useContext(AuthContext)
+  const navigate = useNavigate();
+
+  // console.log(user?.photoURL)
+
+  const logOut = () => {
+    userLogout();
+    navigate("/");
+    // setIsOpen(false);
+  };
+
 
   return (
     <div className="navbar bg-base-100">
@@ -18,14 +29,19 @@ const Navbar = () => {
   </div>
   
   <div className="navbar-end">
-    <Link to={"/login"} >Login</Link>
-  <div className="dropdown dropdown-end">
+
+  {user ? (
+          <div className="flex">
+
+<div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img
-            alt="Tailwind CSS Navbar component"
-            src={user?.photoURL} />
+            alt="avatar"
+            src={user.photoURL}
+            data-tooltip-id="user-tooltip" />
         </div>
+       
       </div>
       <ul
         tabIndex={0}
@@ -36,9 +52,31 @@ const Navbar = () => {
         <li>
           <Link to={"/attemptedAssignments"} >My Attempted Assignments</Link>
         </li>
-        <li><a>Logout</a></li>
+        <li onClick={logOut} ><a>Logout</a></li>
       </ul>
     </div>
+           
+            <Tooltip
+              id="user-tooltip"
+              place="bottom"
+              clickable
+              content={
+                <div>
+                  <p>{user.displayName}</p>
+                </div>
+              }
+            />
+          </div>
+        ) : (
+          <div>
+            <Link to={"/login"} className="btn btn-primary btn-sm">
+              Log in
+            </Link>
+           
+          </div>
+        )}
+
+ 
   
   </div>
 </div>
