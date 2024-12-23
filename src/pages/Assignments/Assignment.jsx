@@ -17,7 +17,6 @@ const Assignment = ({ assignment, assignments, setAssignments }) => {
    
   const handleDelete = (id) => {
     if (user?.email === author.authorEmail) {
-      console.log("user");
 
       // swet alart
       Swal.fire({
@@ -60,6 +59,24 @@ const Assignment = ({ assignment, assignments, setAssignments }) => {
     }
   };
 
+
+  // //handle Update
+  // const handleUpdate = (id) => {
+  //   console.log(id)
+  //   if (user?.email !== author.authorEmail){
+  //     return Swal.fire({
+  //       icon: "error",
+  //       title: "Oops...",
+  //       text: "You can't Update this data !",
+       
+  //     });
+  //   }
+  //   if (user?.email === author.authorEmail){
+  //     navigate(`/updateAssignment/${id}`)
+  //   }
+    
+  // }
+
   return (
     <Link
       // to={`/assignment/${_id}`}
@@ -97,7 +114,7 @@ const Assignment = ({ assignment, assignments, setAssignments }) => {
           >
             <MdDeleteForever size={22} />
           </Link>
-          <Link data-tooltip-id="details-tooltip">
+          <Link to={`/assignment/${_id}`} data-tooltip-id="details-tooltip">
             <FaEye size={20} />
           </Link>
         </div>
