@@ -41,32 +41,6 @@ const Login = () => {
                   text: "Invalid Email or Password",
                 });
     }
-
-
-
-  
-
-
-    // userLogin(email, password)
-    //   .then((result) => {
-    //     Swal.fire({
-    //       title: "Welcome Back!",
-    //       // text: "Let's warm Peoples Heart Together.",
-    //       imageUrl: "https://i.ibb.co.com/jJq2pkf/smile-imoji.webp",
-    //       imageHeight: 200,
-    //       imageAlt: "Custom image",
-    //     });
-
-    //     const redirectTo = location.state?.from || "/";
-    //     navigate(redirectTo);
-    //   })
-    //   .catch((error) => {
-    //     Swal.fire({
-    //       icon: "error",
-    //       title: "Oops...",
-    //       text: "Invalid Email or Password",
-    //     });
-    //   });
   };
 
 
@@ -159,4 +133,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Login; 

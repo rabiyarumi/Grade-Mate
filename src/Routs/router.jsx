@@ -11,11 +11,14 @@ import MyAttemptedAssignments from "../pages/MyAttemptedAssignments/MyAttemptedA
 import AssignmentDetails from "../pages/AssignmentDetails/AssignmentDetails";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout/>,
+      errorElement: <ErrorPage/>,
       children: [
         {
           path: "/",
@@ -29,22 +32,30 @@ const router = createBrowserRouter([
         },
         {
           path: "/assignments/:id",
-          element: <AssignmentDetails/>
+          element: <PrivateRoute>
+             <AssignmentDetails/>
+          </PrivateRoute>
 
         },
         {
           path: "/pendingAssignments",
-          element: <PendingAssignments/>
+          element: <PrivateRoute>
+            <PendingAssignments/>
 
+          </PrivateRoute>
         },
         {
           path: "/createAssignment",
-          element: <CreateAssignment/>
+          element: <PrivateRoute>
+            <CreateAssignment/>
+          </PrivateRoute>
 
         },
         {
           path: "/attemptedAssignments",
-          element: <MyAttemptedAssignments/>
+          element: <PrivateRoute>
+            <MyAttemptedAssignments/>
+          </PrivateRoute>
 
         },
         {
