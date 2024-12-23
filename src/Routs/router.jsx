@@ -31,7 +31,7 @@ const router = createBrowserRouter([
 
         },
         {
-          path: "/assignments/:id",
+          path: "/assignment/:id",
           element: <PrivateRoute>
              <AssignmentDetails/>
           </PrivateRoute>
