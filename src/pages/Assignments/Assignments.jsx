@@ -7,16 +7,15 @@ const Assignments = () => {
 
     useEffect(() => {
 
-        const fetchAllJobs = async () => {
+        const fetchAllAssignments = async () => {
             const { data } = await axios.get("http://localhost:5000/assignments")
             setAssignments(data)
           }
 
-        fetchAllJobs()
+        fetchAllAssignments()
       }, [])
     
      
-      console.log(assignments)
 
     return (
         <div className='container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between'>
@@ -65,7 +64,7 @@ const Assignments = () => {
           </div>
           <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
             {
-                assignments?.map(assignment => <Assignment key={assignment._id} assignment={assignment} />)
+                assignments?.map(assignment => <Assignment key={assignment._id} assignment={assignment} assignments={assignments} setAssignments={setAssignments}/>)
             }
           </div>
         </div>
