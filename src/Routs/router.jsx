@@ -15,6 +15,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import UpdateAssignment from "../pages/UpdateAssignment/UpdateAssignment";
 import AssignmentSubmit from "../pages/AssignmentSubmit/AssignmentSubmit";
+import GiveMark from "../pages/PendingAssignments/GiveMark";
 
 const router = createBrowserRouter([
     {
@@ -76,6 +77,13 @@ const router = createBrowserRouter([
             <UpdateAssignment/>
           </PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
+
+        },
+        {
+          path: "/giveMark/:id",
+          element: <PrivateRoute>
+            <GiveMark/>
+          </PrivateRoute>,
 
         },
         {

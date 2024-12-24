@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
+import { format } from 'date-fns';
+import React from 'react';
 
-import { format } from "date-fns";
-
-const AttemptedAssignmentRows = ({assignment}) => {
+const PendingAssignment = ({assignment, idx}) => {
     const  {
         docs,
         notes,
@@ -14,13 +14,12 @@ const AttemptedAssignmentRows = ({assignment}) => {
         status,
         feedback,
         givenMarks,
+        assignee, assigneeName
       } = assignment|| {};
     return (
         <tr>
         <th>
-          <label>
-            <input type="checkbox"  className="checkbox" />
-          </label>
+          {idx + 1}
         </th>
         <td>
           <div className="flex items-center gap-3">
@@ -44,15 +43,15 @@ const AttemptedAssignmentRows = ({assignment}) => {
             {marks}
          
         </td>
-        <td>{status == "pending" ? "" : givenMarks}</td>
+        <td>{ assigneeName}</td>
         <th>
           <button className="">{status}</button>
         </th>
-        <td>
-           {feedback}
-        </td>
+        <th>
+          <button className="btn btn-ghost btn-xs">Give marks</button>
+        </th>
       </tr>
     );
 };
 
-export default AttemptedAssignmentRows;
+export default PendingAssignment;

@@ -60,22 +60,6 @@ const Assignment = ({ assignment, assignments, setAssignments }) => {
   };
 
 
-  // //handle Update
-  // const handleUpdate = (id) => {
-  //   console.log(id)
-  //   if (user?.email !== author.authorEmail){
-  //     return Swal.fire({
-  //       icon: "error",
-  //       title: "Oops...",
-  //       text: "You can't Update this data !",
-       
-  //     });
-  //   }
-  //   if (user?.email === author.authorEmail){
-  //     navigate(`/updateAssignment/${id}`)
-  //   }
-    
-  // }
 
   return (
     <Link

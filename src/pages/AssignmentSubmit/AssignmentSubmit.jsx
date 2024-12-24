@@ -33,7 +33,9 @@ const AssignmentSubmit = () => {
       status: "pending",
       feedback:"",
       givenMarks: 0,
-      assignee: user.email
+      assignee: user.email,
+      assigneeName:user.displayName
+
     };
     console.log(newData)
 
