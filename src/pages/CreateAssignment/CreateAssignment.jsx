@@ -51,10 +51,9 @@ const CreateAssignment = () => {
             // navigate("/assignments")
         }
         catch(err){
-            console.log(err)
-            Swal.fire({
+          Swal.fire({
                 position: "top-end",
-                icon: "success",
+                icon: "error",
                 title: `${err.message}`,
                 showConfirmButton: false,
                 timer: 1500

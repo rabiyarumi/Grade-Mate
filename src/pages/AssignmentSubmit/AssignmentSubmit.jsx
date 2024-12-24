@@ -31,6 +31,8 @@ const AssignmentSubmit = () => {
       description,
       assignmentId: _id,
       status: "pending",
+      feedback:"",
+      givenMarks: 0,
       assignee: user.email
     };
     console.log(newData)
@@ -56,11 +58,13 @@ const AssignmentSubmit = () => {
         console.log(err)
         Swal.fire({
             position: "top-end",
-            icon: "success",
-            title: `${err.message}`,
+            icon: "error",
+            title: `${err.response.data
+            }`,
             showConfirmButton: false,
             timer: 1500
           });
+          navigate("/assignments")
     }
   };
 
