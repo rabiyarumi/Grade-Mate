@@ -10,12 +10,12 @@ const Assignments = () => {
     useEffect(() => {
 
         const fetchAllAssignments = async () => {
-            const { data } = await axios.get("http://localhost:5000/assignments")
+            const { data } = await axios.get(`http://localhost:5000/assignments?filter=${filter}`)
             setAssignments(data)
           }
 
         fetchAllAssignments()
-      }, [])
+      }, [filter])
     
      
 
