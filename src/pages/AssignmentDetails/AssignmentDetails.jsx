@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { compareAsc, format } from "date-fns";
 import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import AuthContext from "../../providers/AuthContext";
@@ -21,6 +21,14 @@ const AssignmentDetails = () => {
                
               });
       }
+      else if(compareAsc(new Date(), new Date(deadline)) === 1){
+                      return Swal.fire({
+                          icon: "error",
+                          title: "Sorry",
+                          text: "Deadline is Crossed for Assignment!",
+                         
+                        });
+                  }
       else{
         navigate(`/assignmentSubmit/${id}`)
       }

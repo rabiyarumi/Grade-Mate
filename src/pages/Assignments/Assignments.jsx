@@ -4,6 +4,8 @@ import Assignment from "./Assignment";
 
 const Assignments = () => {
     const [assignments, setAssignments] = useState([])
+    const [filter, setFilter] = useState("")
+    console.log(filter)
 
     useEffect(() => {
 
@@ -26,11 +28,12 @@ const Assignments = () => {
                 name='category'
                 id='category'
                 className='border p-4 rounded-lg'
+                onChange={(e) => setFilter(e.target.value)}
               >
                 <option value=''>Filter By Category</option>
-                <option value='Web Development'>Easy</option>
-                <option value='Graphics Design'>Medium</option>
-                <option value='Digital Marketing'>Hard</option>
+                <option value='Easy'>Easy</option>
+                <option value='Medium'>Medium</option>
+                <option value='Hard'>Hard</option>
               </select>
             </div>
   

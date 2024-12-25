@@ -1,9 +1,17 @@
 /* eslint-disable react/prop-types */
-import { format } from 'date-fns';
-import React from 'react';
+import { compareAsc, format } from 'date-fns';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '../../providers/AuthContext';
+import Swal from 'sweetalert2';
 
 const PendingAssignment = ({assignment, idx}) => {
+    const {user} = useContext(AuthContext);
+    const navigate = useNavigate()
+
+
     const  {
+        _id,
         docs,
         notes,
         title,
@@ -16,6 +24,31 @@ const PendingAssignment = ({assignment, idx}) => {
         givenMarks,
         assignee, assigneeName
       } = assignment|| {};
+
+      const verifyUser = (id) => {
+            if(user.email === assignee){
+              return  Swal.fire({
+                      icon: "error",
+                      title: "Sorry",
+                      text: "You can't Mark your own Assignment!",
+                     
+                    });
+            }
+            else if(compareAsc(new Date(), new Date(deadline)) === 1){
+                return Swal.fire({
+                    icon: "error",
+                    title: "Sorry",
+                    text: "Deadline is Crossed for Assignment!",
+                   
+                  });
+            }
+                
+            else{
+              navigate(`/giveMark/${id}`)
+            }
+          }
+         
+
     return (
         <tr>
         <th>
@@ -48,7 +81,7 @@ const PendingAssignment = ({assignment, idx}) => {
           <button className="">{status}</button>
         </th>
         <th>
-          <button className="btn btn-ghost btn-xs">Give marks</button>
+          <button onClick={() => verifyUser(_id)} className="btn btn-ghost btn-xs">Give marks</button>
         </th>
       </tr>
     );
