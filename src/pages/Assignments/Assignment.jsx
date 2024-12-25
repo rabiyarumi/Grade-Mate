@@ -8,11 +8,13 @@ import { Tooltip } from "react-tooltip";
 import AuthContext from "../../providers/AuthContext";
 import Swal from "sweetalert2";
 import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Assignment = ({ assignment, assignments, setAssignments }) => {
   const { user } = useContext(AuthContext);
   const { _id, title, description, level, thumbnail, deadline, marks, author } =
     assignment || {};
+    const axiosSecure = useAxiosSecure()
 
    
   const handleDelete = (id) => {
@@ -31,8 +33,8 @@ const Assignment = ({ assignment, assignments, setAssignments }) => {
         if (result.isConfirmed) {
           //delete data from database
 
-          const { data } = axios.delete(
-            `http://localhost:5000/assignment/${id}`
+          const { data } = axiosSecure.delete(
+            `/assignment/${id}`
           );
 
           Swal.fire({

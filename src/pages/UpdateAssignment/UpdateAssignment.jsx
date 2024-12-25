@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import AuthContext from "../../providers/AuthContext";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const UpdateAssignment = () => {
   const data = useLoaderData();
@@ -13,6 +14,7 @@ const UpdateAssignment = () => {
   const { _id, title, description, level, thumbnail, deadline, marks, author } =
     data || {};
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,14 +27,12 @@ const UpdateAssignment = () => {
     const thumbnail = form.thumbnail.value;
     const deadline = startDate;
     const marks = form.marks.value;
-    // const userName = user?.displayName;
-    // const userEmail = user?.email;
 
     const data = { title, description, level, thumbnail, deadline, marks };
 
     if (user?.email === author.authorEmail) {
-      const result = axios.patch(
-        `http://localhost:5000/assignment/${_id}`,
+      const result = axiosSecure.patch(
+        `/assignment/${_id}`,
         data
       );
       console.log(result);
@@ -149,7 +149,7 @@ const UpdateAssignment = () => {
           </div>
 
           <div className="form-control mt-4 md:col-span-2">
-            <button className="btn btn-primary">Add Assignment</button>
+            <button className="btn btn-primary">Update Assignment</button>
           </div>
         </div>
       </form>

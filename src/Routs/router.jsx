@@ -1,7 +1,4 @@
-import {
-    createBrowserRouter,
-   
-  } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Assignments from "../pages/Assignments/Assignments";
 import Home from "../pages/Home/Home";
@@ -18,87 +15,93 @@ import AssignmentSubmit from "../pages/AssignmentSubmit/AssignmentSubmit";
 import GiveMark from "../pages/PendingAssignments/GiveMark";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout/>,
-      errorElement: <ErrorPage/>,
-      children: [
-        {
-          path: "/",
-          element: <Home/>
-
-        },
-        {
-          path: "/assignments",
-          element: <Assignments/>
-
-        },
-        {
-          path: "/assignment/:id",
-          element: <PrivateRoute>
-             <AssignmentDetails/>
-          </PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
-
-        },
-        {
-          path: "/pendingAssignments",
-          element: <PrivateRoute>
-            <PendingAssignments/>
-
+  {
+    path: "/",
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/assignments",
+        element: <Assignments />,
+      },
+      {
+        path: "/assignment/:id",
+        element: (
+          <PrivateRoute>
+            <AssignmentDetails />
           </PrivateRoute>
-        },
-        {
-          path: "/createAssignment",
-          element: <PrivateRoute>
-            <CreateAssignment/>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/assignment/${params.id}`),
+      },
+      {
+        path: "/pendingAssignments",
+        element: (
+          <PrivateRoute>
+            <PendingAssignments />
           </PrivateRoute>
-
-        },
-        {
-          path: "/attemptedAssignments",
-          element: <PrivateRoute>
-            <MyAttemptedAssignments/>
+        ),
+      },
+      {
+        path: "/createAssignment",
+        element: (
+          <PrivateRoute>
+            <CreateAssignment />
           </PrivateRoute>
-
-        },
-        {
-          path: "/assignmentSubmit/:id",
-          element: <PrivateRoute>
-           <AssignmentSubmit/>
-          </PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
-
-
-        },
-        {
-          path: "/updateAssignment/:id",
-          element: <PrivateRoute>
-            <UpdateAssignment/>
-          </PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
-
-        },
-        {
-          path: "/giveMark/:id",
-          element: <PrivateRoute>
-            <GiveMark/>
-          </PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/pendingAssignment/${params.id}`)
-
-        },
-        {
-          path: "/login",
-          element: <Login/>
-
-        },
-        {
-          path: "/register",
-          element: <Register/>
-
-        },
-      ]
-    },
-  ]);
+        ),
+      },
+      {
+        path: "/attemptedAssignments",
+        element: (
+          <PrivateRoute>
+            <MyAttemptedAssignments />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/assignmentSubmit/:id",
+        element: (
+          <PrivateRoute>
+            <AssignmentSubmit />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/assignment/${params.id}`),
+      },
+      {
+        path: "/updateAssignment/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateAssignment />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/assignment/${params.id}`),
+      },
+      {
+        path: "/giveMark/:id",
+        element: (
+          <PrivateRoute>
+            <GiveMark />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/pendingAssignment/${params.id}`),
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+    ],
+  },
+]);
 
 export default router;

@@ -2,21 +2,23 @@ import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../providers/AuthContext';
 import axios from 'axios';
 import PendingAssignment from './PendingAssignment';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const PendingAssignments = () => {
     const { user } = useContext(AuthContext);
     const [assignments, setAssignments] = useState([]);
+    const axiosSecure = useAxiosSecure()
   
     useEffect(() => {
       const fetchAllAssignments = async () => {
-        const { data } = await axios.get(
-          "http://localhost:5000/pendingAssignments"
+        const { data } = await axiosSecure.get(
+          `/pendingAssignments`
         );
         setAssignments(data);
       };
   
       fetchAllAssignments();
-    }, []);
+    }, [axiosSecure]);
 
     return (
         <div className="overflow-x-auto">

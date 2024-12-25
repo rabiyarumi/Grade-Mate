@@ -3,11 +3,13 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import AuthContext from "../../providers/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AssignmentSubmit = () => {
   const data = useLoaderData();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure()
 
 
   const { _id, title, description, level, thumbnail, deadline, marks } =
@@ -42,7 +44,7 @@ const AssignmentSubmit = () => {
 
     try{
         //post request in DB
-        await axios.post("http://localhost:5000/submittedAssignments", newData)
+        await axiosSecure.post(`/submittedAssignments`, newData)
         //reset form
         form.reset();
         //show Toast

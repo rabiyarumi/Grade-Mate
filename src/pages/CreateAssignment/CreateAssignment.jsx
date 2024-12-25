@@ -5,12 +5,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const CreateAssignment = () => {
 
     const {user} = useContext(AuthContext);
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure()
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -36,9 +38,9 @@ const CreateAssignment = () => {
 
         try{
             //post request in DB
-            await axios.post("http://localhost:5000/assignments", data)
+            await axiosSecure.post(`/assignments`, data)
             //reset form
-            // form.reset();
+            form.reset();
             //show Toast
             Swal.fire({
                 position: "top-end",
@@ -48,7 +50,7 @@ const CreateAssignment = () => {
                 timer: 1500
               });
             //navigate
-            // navigate("/assignments")
+            navigate("/assignments")
         }
         catch(err){
           Swal.fire({

@@ -2,6 +2,7 @@ import  { useContext } from 'react';
 import AuthContext from '../../providers/AuthContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const Login = () => {
 
@@ -46,13 +47,13 @@ const Login = () => {
 
 
    //google login
-   const handleGoogleLogin = () => {
-    googleLogin().then((data) => {
-      // console.log(data.user)
-      const name = data.user.displayName;
-      const photo = data.user.photoURL;
-      const newUser = {name, photo}
-      console.log(newUser)
+   const handleGoogleLogin =  () => {
+    googleLogin().then((result) => {
+
+      
+      // console.log(data.user.email)
+      const name = result.user.displayName;
+      const photo = result.user.photoURL;
       
             Swal.fire({
               position: "top-end",
@@ -61,7 +62,6 @@ const Login = () => {
               showConfirmButton: false,
               timer: 1500,
             });
-            //   console.log('user collection to db', data)
         
         //  update profile
          profileUpdate(name, photo)

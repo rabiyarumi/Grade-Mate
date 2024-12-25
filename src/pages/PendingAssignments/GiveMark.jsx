@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const GiveMark = () => {
   const data = useLoaderData();
   const navigate = useNavigate()
+  const axiosSecure = useAxiosSecure()
   const {
     _id,
     docs,
@@ -42,7 +44,7 @@ const GiveMark = () => {
     });
 
     try{
-        const result =await axios.patch(`http://localhost:5000/pendingAssignment/${_id}/`, newData);
+        const result =await axiosSecure.patch(`/pendingAssignment/${_id}/`, newData);
           console.log(result);
           Swal.fire({
             position: "top-end",
