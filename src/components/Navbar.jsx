@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../providers/AuthContext";
 import { Tooltip } from "react-tooltip";
+import { GiBookCover } from "react-icons/gi";
 
 const Navbar = ({ theme, setTheme }) => {
   const { user, userLogout } = useContext(AuthContext);
@@ -28,9 +29,12 @@ const Navbar = ({ theme, setTheme }) => {
   };
 
   return (
-    <div className="navbar w-[85%] mx-auto ">
-      <div className="navbar-start">
-        <Link to={"/"} className=" text-xl md:text-2xl text-accent  font-bold">
+    <div className="navbar md:w-[85%] mx-auto ">
+      <div className="navbar-start items-center gap-2 justify-start">
+      <Link to={"/"}>
+      <GiBookCover size={25} className="text-accent"/></Link>
+      
+        <Link to={"/"} className=" text-xl md:text-2xl text-accent  font-bold hidden md:block">
           GradeMate
         </Link>
       </div>

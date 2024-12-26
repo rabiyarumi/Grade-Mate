@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Assignment from "./Assignment";
+import { div } from "framer-motion/client";
 
 const Assignments = () => {
     const [assignments, setAssignments] = useState([])
@@ -22,11 +23,14 @@ const Assignments = () => {
         setFilter('')
         setSearch('')
       }
+
+      
     
      
 
     return (
-        <div className='container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between'>
+      <>
+       { assignments.length > 0 ?  <div className='container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between'>
         <div>
           <div className='flex flex-col md:flex-row justify-center items-center gap-5 md:justify-between '>
             <div>
@@ -46,7 +50,7 @@ const Assignments = () => {
         
               <div className='flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 border-accent '>
                 <input
-                  className='px-6   py-2 text-gray-700 placeholder-gray-500 outline-none focus:placeholder-transparent'
+                  className='px-6   py-2  outline-none focus:placeholder-transparent'
                   type='text'
                   name='search'
                   onChange={e => setSearch(e.target.value)}
@@ -66,7 +70,11 @@ const Assignments = () => {
             }
           </div>
         </div>
-      </div>
+      </div> : 
+      <div className="flex justify-center items-center md:h-60">
+        <span className="loading loading-spinner text-accent"></span>
+      </div> }
+      </>
     );
 };
 
