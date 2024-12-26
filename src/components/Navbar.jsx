@@ -10,7 +10,6 @@ const Navbar = ({ theme, setTheme }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-
   const logOut = () => {
     userLogout();
     navigate("/");
@@ -31,14 +30,18 @@ const Navbar = ({ theme, setTheme }) => {
   return (
     <div className="navbar md:w-[85%] mx-auto ">
       <div className="navbar-start items-center gap-2 justify-start">
-      <Link to={"/"}>
-      <GiBookCover size={25} className="text-accent"/></Link>
-      
-        <Link to={"/"} className=" text-xl md:text-2xl text-accent  font-bold hidden md:block">
+        <Link to={"/"}>
+          <GiBookCover size={25} className="text-accent" />
+        </Link>
+
+        <Link
+          to={"/"}
+          className=" text-xl md:text-2xl text-accent  font-bold hidden md:block"
+        >
           GradeMate
         </Link>
       </div>
-      <div className="navbar-center gap-4">
+      <div className="navbar-center gap-4 hidden md:flex">
         <NavLink
           to={"/assignments"}
           className={({ isActive }) =>
@@ -78,6 +81,28 @@ const Navbar = ({ theme, setTheme }) => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow space-y-2"
               >
+                <li>
+                  <NavLink
+                    to={"/assignments"}
+                    className={({ isActive }) =>
+                      `bg-transparent font-semibold md:hidden ${
+                        isActive ? "text-accent" : ""
+                      }`
+                    }
+                  >
+                    Assignments
+                  </NavLink>
+                </li>
+                <li>
+                <NavLink
+          to={"/pendingAssignments"}
+          className={({ isActive }) =>
+            `bg-transparent font-semibold md:hidden ${isActive ? "text-accent" : ""}`
+          }
+        >
+          Pending Assignments
+        </NavLink>
+                </li>
                 <li>
                   <NavLink
                     to={"/createAssignment"}
