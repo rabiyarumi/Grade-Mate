@@ -7,6 +7,7 @@ const Assignments = () => {
     const [assignments, setAssignments] = useState([])
     const [filter, setFilter] = useState("")
     const [search, setSearch] = useState("")
+    console.log(assignments)
 
     useEffect(() => {
 
