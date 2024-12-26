@@ -24,19 +24,19 @@ const Register = () => {
             const newUser = {name, email, photo, password}
 
         
-            //  //password validation
-            //  if (password.length < 6) {
-            //     setErrorMessage("password must be 6 character or more");
-            //     return;
-            //   }
-            //   if (!/^(?=.*[A-Z]).*$/.test(password)) {
-            //     setErrorMessage("password must must contain 1 uppercase letter");
-            //     return;
-            //   }
-            //   if (!/^(?=.*[a-z]).*$/.test(password)) {
-            //     setErrorMessage("password must must contain 1 lowercase letter");
-            //     return;
-            //   }
+             //password validation
+             if (password.length < 6) {
+                setErrorMessage("password must be 6 character or more");
+                return;
+              }
+              if (!/^(?=.*[A-Z]).*$/.test(password)) {
+                setErrorMessage("password must must contain 1 uppercase letter");
+                return;
+              }
+              if (!/^(?=.*[a-z]).*$/.test(password)) {
+                setErrorMessage("password must must contain 1 lowercase letter");
+                return;
+              }
         
 
 
@@ -130,13 +130,12 @@ const Register = () => {
           </div>
   
       {/* error massage */}
-      <div className="text-sm ml-2 mt-1 opacity-85">
+      <div className="text-sm ml-2 opacity-85">
               {errorMessage ? (
                 <p className="text-red-500">{errorMessage}</p>
               ) : (
                 <p className="">
-                  Make sure your password contain 6 character including 1
-                  uppercase & 1 lowercase letter.
+                  
                 </p>
               )}
             </div>
