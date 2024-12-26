@@ -22,7 +22,6 @@ const GiveMark = () => {
     assigneeName,
   } = data || {};
 
-  console.log(_id)
 
 
   const handleSubmit = async (e) => {
@@ -45,7 +44,6 @@ const GiveMark = () => {
 
     try{
         const result =await axiosSecure.patch(`/pendingAssignment/${_id}/`, newData);
-          console.log(result);
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -57,7 +55,13 @@ const GiveMark = () => {
     
     }
     catch(err){
-        console.log(err)
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: `${err.message}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
 
     
@@ -101,7 +105,7 @@ const GiveMark = () => {
               ></textarea>
             </div>
             <div className="form-control mt-6">
-              <button  className="btn btn-primary">Submit</button>
+              <button  className="btn btn-accent">Submit</button>
             </div>
           </form>
         </div>

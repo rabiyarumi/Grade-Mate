@@ -34,7 +34,6 @@ const CreateAssignment = () => {
             authorEmail: userEmail
         }}
 
-        console.log(data)
 
         try{
             //post request in DB
@@ -63,7 +62,8 @@ const CreateAssignment = () => {
         }
     }
     return (
-        <div className='w-[85%] mx-auto'>
+        <div className='w-[85%] mx-auto md:my-10'>
+          <h1 className="text-center text-2xl md:text-4xl font-bold">Create <span className='text-accent'>Assignment</span></h1>
             <form onSubmit={handleSubmit} className="md:p-8">
         <div className="grid grid-cols-1 md:grid-cols-2  md:gap-x-8">
         {/* title */}
@@ -142,7 +142,7 @@ const CreateAssignment = () => {
        
        
         <div className="form-control mt-4 md:col-span-2">
-          <button className="btn btn-primary">Add Assignment</button>
+          <button className="btn btn-accent">Add Assignment</button>
         </div>
         </div>
       </form>

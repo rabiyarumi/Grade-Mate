@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
   //-------
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      console.log("from authProvider", currentUser);
+      // console.log("from authProvider", currentUser);
 
       if (currentUser?.email) {
         //generate token
@@ -64,7 +64,6 @@ const AuthProvider = ({ children }) => {
           },
           { withCredentials: true }
         );
-        console.log(data);
 
         setUser(currentUser);
       } else {

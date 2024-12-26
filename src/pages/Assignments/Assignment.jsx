@@ -43,7 +43,6 @@ const Assignment = ({ assignment, assignments, setAssignments }) => {
             icon: "success",
           });
 
-          console.log(data);
 
           const remaining = assignments.filter((camp) => camp._id !== id);
           setAssignments(remaining);
@@ -72,7 +71,7 @@ const Assignment = ({ assignment, assignments, setAssignments }) => {
         <div>
           <div className="flex items-center ">
             <img src={thumbnail} alt="" className="h-10 w-10 rounded-full" />
-            <span className="px-3 py-1 text-sm font-bold text-blue-800 uppercase  ">
+            <span className="px-3 py-1 text-sm font-bold text-accent  uppercase  ">
               {level}
             </span>
           </div>

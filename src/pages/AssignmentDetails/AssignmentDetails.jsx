@@ -53,10 +53,10 @@ const AssignmentDetails = () => {
           <h1 className="text-3xl font-bold">{title}</h1>
           <p className="">{description}</p>
           <p>Marks: {marks}</p>
-          <p>Author: {author.authorName}</p>
+          <p>Author: {author?.authorName}</p>
           <button onClick={() => verifyUser(_id)}
            
-            className="btn btn-primary"
+            className="btn btn-accent"
           >
             Take Assignment
           </button>

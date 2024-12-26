@@ -25,13 +25,13 @@ const useAxiosSecure = () => {
           )
           if (error.response.status === 401 || error.response.status === 403) {
             // logout
-           userLogout()
+          //  userLogout()
             // navigate to login
-            navigate('/login')
+            // navigate('/login')
           }
         }
       )
-    }, [userLogout, navigate])
+    }, [])
     return axiosSecure
   }
   

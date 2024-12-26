@@ -20,7 +20,6 @@ const AssignmentSubmit = () => {
     const form = e.target;
     const docs = form.docs.value;
     const notes = form.notes.value;
-    console.log(docs, notes);
 
     const newData = {
       docs,
@@ -39,7 +38,6 @@ const AssignmentSubmit = () => {
       assigneeName:user.displayName
 
     };
-    console.log(newData)
 
 
     try{
@@ -59,7 +57,6 @@ const AssignmentSubmit = () => {
         navigate("/attemptedAssignments")
     }
     catch(err){
-        console.log(err)
         Swal.fire({
             position: "top-end",
             icon: "error",
@@ -74,7 +71,8 @@ const AssignmentSubmit = () => {
 
 
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="max-w-lg mx-auto my-10">
+      <h1 className="text-center text-2xl md:text-3xl font-bold">Submit <span className='text-accent'>Assignment</span></h1>
       <form onSubmit={handleSubmit} className="card-body">
         <div className="form-control">
           <label className="label">
@@ -100,7 +98,7 @@ const AssignmentSubmit = () => {
           ></textarea>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Submit</button>
+          <button className="btn btn-accent">Submit</button>
         </div>
       </form>
     </div>

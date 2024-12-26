@@ -17,7 +17,8 @@ const MyAttemptedAssignments = () => {
     fetchAllAssignments();
   }, [user?.email, axiosSecure]);
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-scroll md:w-[85%] mx-auto md:my-10">
+      <h1 className="text-center text-2xl md:text-3xl font-bold mb-6">My Submitted <span className='text-accent'>Assignment</span></h1>
       <table className="table">
         {/* head */}
         <thead>

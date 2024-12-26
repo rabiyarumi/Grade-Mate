@@ -44,7 +44,7 @@ const AttemptedAssignmentRows = ({assignment}) => {
             {marks}
          
         </td>
-        <td>{status == "pending" ? "" : givenMarks}</td>
+        <td className="text-accent">{status == "pending" ? "" : givenMarks}</td>
         <th>
           <button className="">{status}</button>
         </th>

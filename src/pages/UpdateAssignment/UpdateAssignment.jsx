@@ -10,7 +10,6 @@ const UpdateAssignment = () => {
   const data = useLoaderData();
   const { user } = useContext(AuthContext);
   const [startDate, setStartDate] = useState(data?.deadline);
-  console.log(data);
   const { _id, title, description, level, thumbnail, deadline, marks, author } =
     data || {};
   const navigate = useNavigate();
@@ -35,7 +34,6 @@ const UpdateAssignment = () => {
         `/assignment/${_id}`,
         data
       );
-      console.log(result);
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -58,7 +56,8 @@ const UpdateAssignment = () => {
    
   };
   return (
-    <div className="w-[85%] mx-auto">
+    <div className="w-[85%] mx-auto md:my-10">
+      <h1 className="text-center text-2xl md:text-3xl font-bold">Update <span className='text-accent'>Assignment</span></h1>
       <form onSubmit={handleSubmit} className="md:p-8">
         <div className="grid grid-cols-1 md:grid-cols-2  md:gap-x-8">
           {/* title */}
@@ -149,7 +148,7 @@ const UpdateAssignment = () => {
           </div>
 
           <div className="form-control mt-4 md:col-span-2">
-            <button className="btn btn-primary">Update Assignment</button>
+            <button className="btn btn-accent">Update Assignment</button>
           </div>
         </div>
       </form>

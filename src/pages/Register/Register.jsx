@@ -23,7 +23,6 @@ const Register = () => {
         
             const newUser = {name, email, photo, password}
 
-            console.log(newUser)
         
             //  //password validation
             //  if (password.length < 6) {
@@ -45,7 +44,6 @@ const Register = () => {
               try {
                 
                 const result = await userRegister(email, password)
-                console.log(result)
                 await profileUpdate(name, photo)
                 setUser({ ...result.user, displayName: name, photoURL: photo  })
                 Swal.fire({
@@ -57,7 +55,6 @@ const Register = () => {
                   });
                 navigate('/')
               } catch (err) {
-                console.log(err)
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -145,11 +142,11 @@ const Register = () => {
             </div>
   
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Register</button>
+            <button className="btn btn-accent">Register</button>
           </div>
           <p>
             Already have an account? please{" "}
-            <Link to={"/login"} className="text-purple-700"> Login</Link>
+            <Link to={"/login"} className="text-accent"> Login</Link>
           </p>
         </form>
       </div>

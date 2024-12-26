@@ -78,10 +78,10 @@ const PendingAssignment = ({assignment, idx}) => {
         </td>
         <td>{ assigneeName}</td>
         <th>
-          <button className="">{status}</button>
+          <button className="text-accent">{status}</button>
         </th>
         <th>
-          <button onClick={() => verifyUser(_id)} className="btn btn-ghost btn-xs">Give marks</button>
+          <button onClick={() => verifyUser(_id)} className="btn btn-ghost hover:bg-accent btn-xs">Give marks</button>
         </th>
       </tr>
     );

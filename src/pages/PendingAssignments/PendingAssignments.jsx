@@ -21,7 +21,7 @@ const PendingAssignments = () => {
     }, [axiosSecure]);
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-scroll md:w-[85%] mx-auto">
         <table className="table">
           {/* head */}
           <thead>

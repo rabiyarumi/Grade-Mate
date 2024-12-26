@@ -35,7 +35,6 @@ const Login = () => {
         navigate(redirectTo);
     }
     catch(error){
-        console.log(error)
         Swal.fire({
                   icon: "error",
                   title: "Oops...",
@@ -51,7 +50,6 @@ const Login = () => {
     googleLogin().then((result) => {
 
       
-      // console.log(data.user.email)
       const name = result.user.displayName;
       const photo = result.user.photoURL;
       
@@ -112,23 +110,24 @@ const Login = () => {
           </div>
   
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn btn-accent">Login</button>
           </div>
           
           <p>
             New to this Website? please{" "}
-            <Link to={"/register"} className="text-purple-700">
+            <Link to={"/register"} className="text-accent">
               Register
             </Link>
           </p>
-        </form>
-        {/* google login */}
+           {/* google login */}
         <div className="form-control mt-6">
-            <button onClick={handleGoogleLogin} className="btn btn-outline btn-primary">
+            <button onClick={handleGoogleLogin} className="btn btn-outline btn-accent">
               Login with Google
             </button>
             
           </div>
+        </form>
+       
       </div>
     );
 };
