@@ -27,6 +27,52 @@ const Navbar = ({ theme, setTheme }) => {
     }
   };
 
+  const links = (
+    <>
+    <NavLink
+          to={"/assignments"}
+          className={({ isActive }) =>
+            `bg-transparent font-semibold  ${isActive ? "text-accent" : ""}`
+          }
+        >
+          Assignments
+        </NavLink>
+      <NavLink
+        to={"/about-us"}
+        className={({ isActive }) =>
+          `bg-transparent font-semibold  ${
+            isActive ? "text-accent" : ""
+          }`
+        }
+      >
+        About Us
+      </NavLink>
+      <NavLink
+        to={"/faq"}
+        className={({ isActive }) =>
+          `bg-transparent font-semibold  ${
+            isActive ? "text-accent" : ""
+          }`
+        }
+      >
+       FAQ
+      </NavLink>
+
+
+      {
+      user && <NavLink
+      to={"/pendingAssignments"}
+      className={({ isActive }) =>
+        `bg-transparent font-semibold  ${isActive ? "text-accent" : ""}`
+      }
+    >
+      Pending Assignments
+    </NavLink>
+    }
+    </>
+    
+  );
+
   return (
     <div className="navbar md:w-[85%] mx-auto ">
       <div className="navbar-start items-center gap-2 justify-start">
@@ -42,22 +88,9 @@ const Navbar = ({ theme, setTheme }) => {
         </Link>
       </div>
       <div className="navbar-center gap-4 hidden md:flex">
-        <NavLink
-          to={"/assignments"}
-          className={({ isActive }) =>
-            `bg-transparent font-semibold  ${isActive ? "text-accent" : ""}`
-          }
-        >
-          Assignments
-        </NavLink>
-        <NavLink
-          to={"/pendingAssignments"}
-          className={({ isActive }) =>
-            `bg-transparent font-semibold  ${isActive ? "text-accent" : ""}`
-          }
-        >
-          Pending Assignments
-        </NavLink>
+        
+        {links}
+        
       </div>
 
       <div className="navbar-end">
@@ -94,14 +127,16 @@ const Navbar = ({ theme, setTheme }) => {
                   </NavLink>
                 </li>
                 <li>
-                <NavLink
-          to={"/pendingAssignments"}
-          className={({ isActive }) =>
-            `bg-transparent font-semibold md:hidden ${isActive ? "text-accent" : ""}`
-          }
-        >
-          Pending Assignments
-        </NavLink>
+                  <NavLink
+                    to={"/pendingAssignments"}
+                    className={({ isActive }) =>
+                      `bg-transparent font-semibold md:hidden ${
+                        isActive ? "text-accent" : ""
+                      }`
+                    }
+                  >
+                    Pending Assignments
+                  </NavLink>
                 </li>
                 <li>
                   <NavLink

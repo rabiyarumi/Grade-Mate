@@ -13,6 +13,8 @@ import PrivateRoute from "./PrivateRoute";
 import UpdateAssignment from "../pages/UpdateAssignment/UpdateAssignment";
 import AssignmentSubmit from "../pages/AssignmentSubmit/AssignmentSubmit";
 import GiveMark from "../pages/PendingAssignments/GiveMark";
+import Faq from "../pages/Home/Faq";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,22 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/assignment/${params.id}`),
+      },
+      {
+        path: "/about-us",
+        element: (
+          
+            <AboutUs />
+         
+        ),
+      },
+      {
+        path: "/faq",
+        element: (
+          
+            <Faq />
+          
+        ),
       },
       {
         path: "/pendingAssignments",
