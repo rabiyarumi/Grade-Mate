@@ -4,6 +4,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../providers/AuthContext";
 import { Tooltip } from "react-tooltip";
 import { GiBookCover } from "react-icons/gi";
+import { div } from "framer-motion/client";
 
 const Navbar = ({ theme, setTheme }) => {
   const { user, userLogout } = useContext(AuthContext);
@@ -74,7 +75,8 @@ const Navbar = ({ theme, setTheme }) => {
   );
 
   return (
-    <div className="navbar md:w-[85%] mx-auto ">
+   <div className="sticky top-0 z-50 bg-white/70 bg-opacity-30">
+     <div className="navbar md:w-[85%] mx-auto ">
       <div className="navbar-start items-center gap-2 justify-start">
         <Link to={"/"}>
           <GiBookCover size={25} className="text-accent" />
@@ -212,6 +214,7 @@ const Navbar = ({ theme, setTheme }) => {
         </label>
       </div>
     </div>
+   </div>
   );
 };
 
