@@ -2,8 +2,8 @@ import { GiBookCover } from "react-icons/gi";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer bg-accent text-white p-10 pt-40">
+    <div className="bg-accent text-white p-10 pt-40">
+      <footer className="footer  justify-between md:w-[90%] mx-auto">
         <aside>
           <GiBookCover size={57} className="text-white/90" />
           <p>
@@ -26,7 +26,7 @@ const Footer = () => {
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
         </nav>
-        <nav>
+        <nav className="border-2">
           <h6 className="footer-title">Legal</h6>
           <a className="link link-hover">Terms of use</a>
           <a className="link link-hover">Privacy policy</a>
