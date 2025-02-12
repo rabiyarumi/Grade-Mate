@@ -18,6 +18,13 @@ const Features = () => {
           icon: "⭐",
         },
         {
+          id: 2,
+          title: "Take Assignments",
+          description:
+            "Review and grade your friends' assignments in a collaborative environment.",
+          icon: "📑",
+        },
+        {
           id: 3,
           title: "Track Progress",
           description:
@@ -37,10 +44,11 @@ const Features = () => {
           >
             <span className="text-accent">Features of</span> Our Application
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature) => (
               <motion.div
                 key={feature.id}
+                whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

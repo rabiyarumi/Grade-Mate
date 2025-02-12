@@ -75,8 +75,8 @@ const Navbar = ({ theme, setTheme }) => {
   );
 
   return (
-   <div className="sticky top-0 z-50 bg-white/70 bg-opacity-30">
-     <div className="navbar md:w-[85%] mx-auto ">
+   <div className="sticky top-0 z-50 bg-base-200 bg-opacity-60 w-full">
+     <div className="navbar md:w-[85%] mx-auto  z-20">
       <div className="navbar-start items-center gap-2 justify-start">
         <Link to={"/"}>
           <GiBookCover size={25} className="text-accent" />

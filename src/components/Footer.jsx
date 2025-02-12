@@ -3,7 +3,7 @@ import { GiBookCover } from "react-icons/gi";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer bg-accent text-white p-10">
+      <footer className="footer bg-accent text-white p-10 pt-40">
         <aside>
           <GiBookCover size={57} className="text-white/90" />
           <p>

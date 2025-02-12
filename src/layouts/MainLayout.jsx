@@ -14,7 +14,7 @@ const MainLayout = () => {
 
     } , [theme])
     return (
-        <div className='flex flex-col min-h-screen'>
+        <div className='flex flex-col min-h-screen '>
             <Navbar theme={theme} setTheme={setTheme}/>
             <div className='flex-grow'>
                 <Outlet/>
