@@ -37,7 +37,7 @@ const Faq = () => {
   };
 
     return (
-        <section className="py-12 md:w-[85%] mx-auto">
+        <section className="py-12 md:w-[87%] mx-auto">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -55,7 +55,7 @@ const Faq = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="border rounded-lg p-4"
+              className="border border-accent rounded-lg p-4"
             >
               <div
                 className="flex justify-between items-center cursor-pointer"

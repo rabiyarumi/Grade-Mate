@@ -7,12 +7,12 @@ const RecentAssignment = () => {
 
     useEffect(() => {
 
-        const fetchAllAssignments = async () => {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/assignments`)
-            setAssignments(data)
+        const fetchAssignments = async () => {
+          const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/assignments`)
+          setAssignments(data)
           }
 
-        fetchAllAssignments()
+        fetchAssignments()
       }, [])
 
       console.log(assignments)

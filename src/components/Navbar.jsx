@@ -31,6 +31,14 @@ const Navbar = ({ theme, setTheme }) => {
   const links = (
     <>
       <NavLink
+        to={"/"}
+        className={({ isActive }) =>
+          `bg-transparent font-semibold  ${isActive ? "text-accent" : ""}`
+        }
+      >
+        Home
+      </NavLink>
+      <NavLink
         to={"/assignments"}
         className={({ isActive }) =>
           `bg-transparent font-semibold  ${isActive ? "text-accent" : ""}`
@@ -46,7 +54,7 @@ const Navbar = ({ theme, setTheme }) => {
       >
         About Us
       </NavLink>
-      <NavLink
+      {/* <NavLink
         to={"/faq"}
         className={({ isActive }) =>
           `bg-transparent font-semibold  ${isActive ? "text-accent" : ""}`
@@ -54,7 +62,7 @@ const Navbar = ({ theme, setTheme }) => {
       >
         FAQ
       </NavLink>
-
+ */}
       {user && (
         <>
           <NavLink
