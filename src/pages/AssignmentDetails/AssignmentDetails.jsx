@@ -38,12 +38,12 @@ const AssignmentDetails = () => {
 
   return (
     <div className="hero bg-base-200 w-[85%] mx-auto md:my-20">
-      <div className="hero-content flex-col gap-10 md:flex-row">
+      <div className="hero-content flex-col gap-6 md:flex-row">
         <img
           src={thumbnail}
-          className="max-w-sm rounded-lg shadow-2xl h-60 w-48"
+          className="max-w-sm rounded-lg shadow-2xl h-60 w-48 "
         />
-        <div className="space-y-3">
+        <div className="space-y-3 border-l-2 pl-6">
           <div className="flex items-center gap-20">
             <span className="text-xs font-light  ">
               Due Date: {format(new Date(deadline), "P")}

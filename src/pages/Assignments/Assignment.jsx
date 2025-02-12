@@ -64,7 +64,7 @@ const Assignment = ({ assignment, assignments, setAssignments }) => {
 
   return (
     <Link
-      // to={`/assignment/${_id}`}
+      to={`/assignment/${_id}`}
       className="w-full max-w-sm px-4 py-3 rounded-md shadow-md hover:scale-[1.05] transition-all"
     >
       <div className="flex gap-10">
@@ -84,7 +84,6 @@ const Assignment = ({ assignment, assignments, setAssignments }) => {
               Due Date: {format(new Date(deadline), "P")}
             </span>
             <p className="mt-2 text-sm font-bold ">Marks: {marks}</p>
-            <p>{author.authorEmail}</p>
           </div>
         </div>
 
