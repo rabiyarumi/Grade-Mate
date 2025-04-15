@@ -74,16 +74,7 @@ const Navbar = ({ theme, setTheme }) => {
             Pending Assignments
           </NavLink>
 
-          <NavLink
-            to={"/attemptedAssignments"}
-            className={({ isActive }) =>
-              `bg-transparent font-semibold  ${
-                isActive ? "text-accent" : ""
-              }`
-            }
-          >
-            Attempted Assignments
-          </NavLink>
+         
         </>
       )}
     </>
@@ -167,7 +158,7 @@ const Navbar = ({ theme, setTheme }) => {
                     <NavLink
                       to={"/attemptedAssignments"}
                       className={({ isActive }) =>
-                        `bg-transparent font-semibold md:hidden ${
+                        `bg-transparent font-semibold  ${
                           isActive ? "text-accent" : ""
                         }`
                       }
